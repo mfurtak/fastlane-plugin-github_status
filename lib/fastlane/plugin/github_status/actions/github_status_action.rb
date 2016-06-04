@@ -2,13 +2,7 @@ module Fastlane
   module Actions
     class GithubStatusAction < Action
       def self.run(params)
-        UI.message "The github_status plugin is working!"
-
-        ui = Plugin::GitHubStatus::UI.new
-        client = Plugin::GitHubStatus::Client.new
-        status_message = Plugin::GitHubStatus::Message.new(client.last_message)
-
-        ui.print_message(status_message)
+        ui.print_message(client.last_message)
       end
 
       def self.description
@@ -31,6 +25,28 @@ module Fastlane
 
       def self.is_supported?(platform)
         true
+      end
+
+      #
+      # collaborators
+      #
+
+      # Used to override the UI for testing
+      def self.ui=(ui)
+        @ui = ui
+      end
+
+      def self.ui
+        @ui ||= Plugin::GitHubStatus::UI.new
+      end
+
+      # Used to override the Client for testing
+      def self.client=(client)
+        @client = client
+      end
+
+      def self.client
+        @client ||= Plugin::GitHubStatus::Client.new
       end
     end
   end

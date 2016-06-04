@@ -5,7 +5,8 @@ module Fastlane
         API_ENDPOINT = 'https://status.github.com/api'.freeze
 
         def last_message
-          JSON.parse(open("#{API_ENDPOINT}/last-message.json").read, symbolize_names: true)
+          message_json = JSON.parse(open("#{API_ENDPOINT}/last-message.json").read)
+          Plugin::GitHubStatus::Message.new(message_json)
         end
       end
     end
