@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'date'
 
 require 'fastlane/plugin/github_status/version'
 require 'fastlane/plugin/github_status/ui'
