@@ -9,7 +9,7 @@ module Fastlane
         def initialize(options_hash)
           @status = options_hash[:status]
           @body = options_hash[:body]
-          @created_on = options_hash[:created_on]
+          @created_on = Time.parse(options_hash[:created_on])
         end
       end
     end
