@@ -6,12 +6,12 @@ require 'fastlane/plugin/github_status/version'
 Gem::Specification.new do |spec|
   spec.name          = 'fastlane-plugin-github_status'
   spec.version       = Fastlane::GithubStatus::VERSION
-  spec.author        = %q{Michael Furtak}
-  spec.email         = %q{michael.furtak@gmail.com}
+  spec.author        = 'Michael Furtak'
+  spec.email         = 'michael.furtak@gmail.com'
 
-  spec.summary       = %q{Provides the ability to check on GitHub server status as part of your build}
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-github_status"
-  spec.license       = "MIT"
+  spec.summary       = 'Provides the ability to check on GitHub server status as part of your build'
+  spec.homepage      = 'https://github.com/mfurtak/fastlane-plugin-github_status'
+  spec.license       = 'MIT'
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
