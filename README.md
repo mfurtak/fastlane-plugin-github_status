@@ -14,9 +14,23 @@ fastlane add_plugin github_status
 
 Provides the ability to display and act upon GitHub server status as part of your build
 
-### TODO
+```ruby
+	# Display the status of the GitHub APIs as part of your build
+	github_status
+```
 
-* [ ] Allow non-good statuses to stop/fail the build
+![example output](assets/example_output.svg)
+
+```ruby
+	# Stop the build if the status of the GitHub APIs is currently at or above a certain level of trouble
+	github_status(abort_level: 'major') # 'minor' or 'major'
+```
+
+```ruby
+	# Capture the GitHub APIs status information, and use it however you'd like
+	message = github_status
+	puts "✅ #{message.body} ✅" if message.status == 'good'
+```
 
 ## Example
 
