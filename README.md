@@ -27,6 +27,12 @@ Provides the ability to display and act upon GitHub server status as part of you
 	github_status(abort_level: 'major') # 'minor' or 'major'
 ```
 
+If you want to see how your build will behave when GitHub returns a particular status, you can temporarily force the plugin to return a particular status value by setting the `GITHUB_STATUS_TEST_STATUS` environment variable before your run, like:
+
+```bash
+GITHUB_STATUS_TEST_STATUS=major fastlane your_lane
+```
+
 ```ruby
 	# Capture the GitHub APIs status information, and use it however you'd like
 	message = github_status

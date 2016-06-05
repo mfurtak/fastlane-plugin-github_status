@@ -30,7 +30,7 @@ module Fastlane
         #   'created_on' => '2016-06-01T16:40:35Z'
         # }
         def initialize(data_hash)
-          @status = data_hash['status']
+          @status = ENV['GITHUB_STATUS_TEST_STATUS'] || data_hash['status']
           @body = data_hash['body']
           @created_on = Time.parse(data_hash['created_on'])
         end
