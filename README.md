@@ -14,7 +14,9 @@ fastlane add_plugin github_status
 
 Provides the ability to check on GitHub server status as part of your build
 
-**Note to author:** Add a more detailed description about this plugin here. If your plugin contains multiple actions, make sure to mention them here.
+### TODO
+
+* [ ] Allow non-good statuses to stop/fail the build
 
 ## Example
 
