@@ -14,6 +14,8 @@ fastlane add_plugin github_status
 
 Provides the ability to display and act upon GitHub server status as part of your build
 
+#### Status display
+
 ```ruby
 	# Display the status of the GitHub APIs as part of your build
 	github_status
@@ -21,6 +23,9 @@ Provides the ability to display and act upon GitHub server status as part of you
 
 ![example output](assets/example_output.png)
 
+#### Stop your build preemptively
+
+If you use GitHub as part of your build and release process, it can be important to know that their APIs are having trouble before you start taking release actions.
 
 ```ruby
 	# Stop the build if the status of the GitHub APIs is currently at or above a certain level of trouble
@@ -32,6 +37,8 @@ If you want to see how your build will behave when GitHub returns a particular s
 ```bash
 GITHUB_STATUS_TEST_STATUS=major fastlane your_lane
 ```
+
+#### Retrieve the status for your own use
 
 ```ruby
 	# Capture the GitHub APIs status information, and use it however you'd like
