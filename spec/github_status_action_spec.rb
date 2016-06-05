@@ -7,7 +7,7 @@ describe Fastlane::Actions::GithubStatusAction do
   let(:message) { message_from_response_fixture }
 
   describe '#run' do
-    it 'prints a message' do
+    it 'prints the status message' do
       expect(Fastlane::Actions::GithubStatusAction.client).to receive(:last_message).and_return(message)
       expect(Fastlane::Actions::GithubStatusAction.ui).to receive(:print_message).with(message)
 
