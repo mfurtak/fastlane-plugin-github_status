@@ -19,7 +19,8 @@ Provides the ability to display and act upon GitHub server status as part of you
 	github_status
 ```
 
-![example output](assets/example_output.svg)
+![example output](assets/example_output.png)
+
 
 ```ruby
 	# Stop the build if the status of the GitHub APIs is currently at or above a certain level of trouble
