@@ -7,6 +7,7 @@ require 'fastlane/plugin/github_status/version'
 require 'fastlane/plugin/github_status/ui'
 require 'fastlane/plugin/github_status/message'
 require 'fastlane/plugin/github_status/client'
+require 'fastlane/plugin/github_status/options'
 
 module Fastlane
   module GithubStatus

@@ -17,6 +17,10 @@ module Fastlane
           FastlaneUI.message '🐙 🐱'
         end
 
+        def abort!(text)
+          FastlaneUI.user_error!(text)
+        end
+
         def status_statement(message)
           status = message.status
           colorize_for_status(status, "#{status.upcase} - #{message.body}")

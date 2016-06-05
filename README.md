@@ -12,7 +12,7 @@ fastlane add_plugin github_status
 
 ## About github_status
 
-Provides the ability to check on GitHub server status as part of your build
+Provides the ability to display and act upon GitHub server status as part of your build
 
 ### TODO
 

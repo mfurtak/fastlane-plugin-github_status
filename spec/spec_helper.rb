@@ -10,6 +10,14 @@ require 'fastlane/plugin/github_status' # import the actual plugin
 Fastlane.load_actions # load other actions (in case your plugin calls other actions or shared values)
 
 def message_from_response_fixture
-  json = JSON.parse(File.read('spec/fixtures/response.json'))
-  Fastlane::Plugin::GitHubStatus::Message.new(json)
+  Fastlane::Plugin::GitHubStatus::Message.new(message_fixture_data)
+end
+
+def message_fixture_data
+  JSON.parse(File.read('spec/fixtures/response.json'))
+end
+
+def message_from_params(params = {})
+  data = message_fixture_data.merge!(params)
+  Fastlane::Plugin::GitHubStatus::Message.new(data)
 end

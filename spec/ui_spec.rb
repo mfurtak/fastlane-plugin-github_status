@@ -24,4 +24,12 @@ describe Fastlane::Plugin::GitHubStatus::UI do
       ui.print_message(message_from_response_fixture)
     end
   end
+
+  describe '#abort!' do
+    it 'stops execution and displays an error message' do
+      expect(FastlaneCore::UI).to receive(:user_error!).with('error')
+
+      ui.abort!('error')
+    end
+  end
 end

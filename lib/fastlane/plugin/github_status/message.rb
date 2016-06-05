@@ -4,6 +4,8 @@ module Fastlane
       # Immutable module object representing the last status message
       # provided by GitHub
       class Message
+        STATUS_RANKING = ['good', 'minor', 'major'].freeze
+
         # String representing one of three possible statuses:
         # * 'good' - Everything is OK
         # * 'minor' - GitHub is experiencing minor problems
@@ -31,6 +33,20 @@ module Fastlane
           @status = data_hash['status']
           @body = data_hash['body']
           @created_on = Time.parse(data_hash['created_on'])
+        end
+
+        def status_at_least?(other_status)
+          self.class.valid_status?(other_status) && (status_ranking(status) >= status_ranking(other_status))
+        end
+
+        def self.valid_status?(status)
+          STATUS_RANKING.include?(status)
+        end
+
+        private
+
+        def status_ranking(status)
+          STATUS_RANKING.find_index(status)
         end
       end
     end

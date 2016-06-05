@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.author        = 'Michael Furtak'
   spec.email         = 'michael.furtak@gmail.com'
 
-  spec.summary       = 'Provides the ability to check on GitHub server status as part of your build'
+  spec.summary       = 'Provides the ability to display and act upon GitHub server status as part of your build'
   spec.homepage      = 'https://github.com/mfurtak/fastlane-plugin-github_status'
   spec.license       = 'MIT'
 

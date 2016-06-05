@@ -2,7 +2,14 @@ module Fastlane
   module Actions
     class GithubStatusAction < Action
       def self.run(params)
-        ui.print_message(client.last_message)
+        message = client.last_message
+        ui.print_message(message)
+
+        if message.status_at_least?(params[:abort_level])
+          ui.abort!("Aborting because of GitHub status: #{ui.status_statement(message)}")
+        end
+
+        message
       end
 
       def self.description
@@ -14,13 +21,7 @@ module Fastlane
       end
 
       def self.available_options
-        [
-          # FastlaneCore::ConfigItem.new(key: :your_option,
-          #                         env_name: "GITHUB_STATUS_YOUR_OPTION",
-          #                      description: "A description of your option",
-          #                         optional: false,
-          #                             type: String)
-        ]
+        Plugin::GitHubStatus::Options.available_options
       end
 
       def self.is_supported?(platform)
@@ -31,18 +32,13 @@ module Fastlane
       # collaborators
       #
 
-      # Used to override the UI for testing
-      def self.ui=(ui)
-        @ui = ui
+      class << self
+        attr_accessor :ui
+        attr_accessor :client
       end
 
       def self.ui
         @ui ||= Plugin::GitHubStatus::UI.new
-      end
-
-      # Used to override the Client for testing
-      def self.client=(client)
-        @client = client
       end
 
       def self.client
