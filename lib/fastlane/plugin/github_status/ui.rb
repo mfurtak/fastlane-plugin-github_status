@@ -11,10 +11,10 @@ module Fastlane
         }.freeze
 
         def print_message(message)
-          FastlaneUI.message ''
+          FastlaneUI.message '🐙 🐱'
           FastlaneUI.message "GitHub status is: #{status_statement(message)}"
           FastlaneUI.message "Last updated: #{message.created_on}"
-          FastlaneUI.message ''
+          FastlaneUI.message '🐙 🐱'
         end
 
         def status_statement(message)
